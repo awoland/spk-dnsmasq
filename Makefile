@@ -29,6 +29,7 @@ myInstall:
 	install -m 755 -d $(STAGING_INSTALL_PREFIX)/etc/dnsmasq.d
 	install -m 755 -d $(STAGING_INSTALL_PREFIX)/share/dnsmasq
 	install -m 755 -d $(STAGING_INSTALL_PREFIX)/var/lib/misc
+	install -m 755 -d $(STAGING_INSTALL_PREFIX)/var/run
 	touch $(STAGING_INSTALL_PREFIX)/etc/dnsmasq.d/dummy
 	touch $(STAGING_INSTALL_PREFIX)/var/lib/misc/dnsmasq.leases
 	install -m 0755 -s $(WORK_DIR)/$(PKG_DIR)/dnsmasq $(STAGING_INSTALL_PREFIX)/sbin
