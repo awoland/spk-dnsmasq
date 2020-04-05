@@ -21,7 +21,7 @@ include ../../mk/spksrc.cross-cc.mk
 
 .PHONY: myCompile
 myCompile:
-	$(RUN) $(MAKE) dnsmasq COPTS="-DHAVE_BROKEN_RTC -DHAVE_DBUS -DVERSION=$(PKG_VERS)" PREFIX=$(INSTALL_PREFIX)
+	$(RUN) $(MAKE) dnsmasq COPTS="-DHAVE_BROKEN_RTC -DHAVE_DBUS -DVERSION=\"$(PKG_VERS)\"" PREFIX=$(INSTALL_PREFIX)
 
 .PHONY: myInstall
 myInstall:
