@@ -10,3 +10,23 @@
  
  sum?=$(shell $(CC) -DDNSMASQ_COMPILE_OPTS $(COPTS) -E $(top)/$(SRC)/dnsmasq.h | ( md5sum 2>/dev/null || md5 ) | cut -f 1 -d ' ')
  sum!=$(CC) -DDNSMASQ_COMPILE_OPTS $(COPTS) -E $(top)/$(SRC)/dnsmasq.h | ( md5sum 2>/dev/null || md5 ) | cut -f 1 -d ' '
+--- src/option.c.orig	2020-04-05 16:28:07.945824900 +0000
++++ src/option.c	2020-04-05 16:29:29.932700700 +0000
+@@ -4756,7 +4756,7 @@
+   daemon->min_port = MIN_PORT;
+ 
+ #ifndef NO_ID
+-  add_txt("version.bind", "dnsmasq-" VERSION, 0 );
++  add_txt("version.bind", "dnsmasq-2.80", 0 );
+   add_txt("authors.bind", "Simon Kelley", 0);
+   add_txt("copyright.bind", COPYRIGHT, 0);
+   add_txt("cachesize.bind", NULL, TXT_STAT_CACHESIZE);
+@@ -4825,7 +4825,7 @@
+ 	}
+       else if (option == 'v')
+ 	{
+-	  printf(_("Dnsmasq version %s  %s\n"), VERSION, COPYRIGHT);
++	  printf(_("Dnsmasq version %s  %s\n"), "2.80", COPYRIGHT);
+ 	  printf(_("Compile time options: %s\n\n"), compile_opts); 
+ 	  printf(_("This software comes with ABSOLUTELY NO WARRANTY.\n"));
+ 	  printf(_("Dnsmasq is free software, and you are welcome to redistribute it\n"));
