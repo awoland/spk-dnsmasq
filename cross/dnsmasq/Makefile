@@ -32,4 +32,3 @@ myInstall:
 	install -m 0755 $(WORK_DIR)/$(PKG_DIR)/dnsmasq $(STAGING_INSTALL_PREFIX)/sbin
 	install -m 0644 $(WORK_DIR)/$(PKG_DIR)/trust-anchors.conf $(STAGING_INSTALL_PREFIX)/share
 	install -m 0644 $(WORK_DIR)/$(PKG_DIR)/dnsmasq.conf.example $(STAGING_INSTALL_PREFIX)/var
-	install -m 0644 dnsmasq.conf $(STAGING_INSTALL_PREFIX)/var
