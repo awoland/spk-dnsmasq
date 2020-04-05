@@ -1,0 +1,12 @@
+# fixed build version autodetect
+--- Makefile.orig	2018-10-18 18:21:55.000000000 +0000
++++ Makefile	2020-04-05 16:06:10.042073500 +0000
+@@ -66,7 +66,7 @@
+ nettle_libs =   `echo $(COPTS) | $(top)/bld/pkg-wrapper HAVE_DNSSEC $(PKG_CONFIG) --libs nettle hogweed`
+ gmp_libs =      `echo $(COPTS) | $(top)/bld/pkg-wrapper HAVE_DNSSEC NO_GMP --copy -lgmp`
+ sunos_libs =    `if uname | grep SunOS >/dev/null 2>&1; then echo -lsocket -lnsl -lposix4; fi`
+-version =     -DVERSION='\"`$(top)/bld/get-version $(top)`\"'
++version =     -DVERSION='\"$(VERSION)"'
+ 
+ sum?=$(shell $(CC) -DDNSMASQ_COMPILE_OPTS $(COPTS) -E $(top)/$(SRC)/dnsmasq.h | ( md5sum 2>/dev/null || md5 ) | cut -f 1 -d ' ')
+ sum!=$(CC) -DDNSMASQ_COMPILE_OPTS $(COPTS) -E $(top)/$(SRC)/dnsmasq.h | ( md5sum 2>/dev/null || md5 ) | cut -f 1 -d ' '
