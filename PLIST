@@ -1,0 +1,6 @@
+bin:sbin/dnsmasq
+rsc:etc/dnsmasq.conf
+rsc:etc/dnsmasq.d/dummy
+rsc:share/dnsmasq/trust-anchors.conf
+rsc:var/lib/misc/dnsmasq.leases
+rsc:share/man/man8/dnsmasq.8
