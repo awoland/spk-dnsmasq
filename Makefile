@@ -5,7 +5,7 @@ PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://thekelleys.org.uk/dnsmasq/
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
-DEPENDS = cross/libidn cross/nettle
+DEPENDS = cross/libidn cross/nettle cross/gmp
 
 HOMEPAGE = http://thekelleys.org.uk/dnsmasq/doc.html
 COMMENT  = A lightweight DNS, TFTP, PXE, router advertisement and DHCP server. It is intended to provide coupled DNS and DHCP service to a LAN.
