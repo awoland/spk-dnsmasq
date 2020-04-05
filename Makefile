@@ -26,12 +26,9 @@ myCompile:
 .PHONY: myInstall
 myInstall:
 	install -m 755 -d $(STAGING_INSTALL_PREFIX)/sbin
-	install -m 755 -d $(STAGING_INSTALL_PREFIX)/etc/dnsmasq.d
-	install -m 755 -d $(STAGING_INSTALL_PREFIX)/share/dnsmasq
-	install -m 755 -d $(STAGING_INSTALL_PREFIX)/var/lib/misc
-	install -m 755 -d $(STAGING_INSTALL_PREFIX)/var/run
-	touch $(STAGING_INSTALL_PREFIX)/etc/dnsmasq.d/dummy
-	touch $(STAGING_INSTALL_PREFIX)/var/lib/misc/dnsmasq.leases
+	install -m 755 -d $(STAGING_INSTALL_PREFIX)/var/dnsmasq.d
+	install -m 755 -d $(STAGING_INSTALL_PREFIX)/share
+	touch $(STAGING_INSTALL_PREFIX)/var/dnsmasq.leases
 	install -m 0755 $(WORK_DIR)/$(PKG_DIR)/dnsmasq $(STAGING_INSTALL_PREFIX)/sbin
-	install -m 0644 $(WORK_DIR)/$(PKG_DIR)/trust-anchors.conf $(STAGING_INSTALL_PREFIX)/share/dnsmasq
-	cat $(WORK_DIR)/$(PKG_DIR)/dnsmasq.conf.example | sed -e 's/\#conf-dir\=\/etc\/dnsmasq.d\/,\*.conf/conf-dir\=\/usr\/local\/dnsmasq/etc\/dnsmasq.d\/,\*.conf/g' > $(STAGING_INSTALL_PREFIX)/etc/dnsmasq.conf
+	install -m 0644 $(WORK_DIR)/$(PKG_DIR)/trust-anchors.conf $(STAGING_INSTALL_PREFIX)/share
+	install -m 0644 $(WORK_DIR)/$(PKG_DIR)/dnsmasq.conf.example $(STAGING_INSTALL_PREFIX)/var
