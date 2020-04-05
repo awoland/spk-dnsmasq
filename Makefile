@@ -11,16 +11,17 @@ HOMEPAGE = http://thekelleys.org.uk/dnsmasq/doc.html
 COMMENT  = A lightweight DNS, TFTP, PXE, router advertisement and DHCP server. It is intended to provide coupled DNS and DHCP service to a LAN.
 LICENSE  = GPLv2/GPLv3
 
+ENV += CURDIR="$(WORK_DIR)/$(PKG_DIR)"
+
 CONFIGURE_TARGET = nop
-COMPILE_TARGET = myConfigure
+COMPILE_TARGET = myCompile
 INSTALL_TARGET = myInstall
 
 include ../../mk/spksrc.cross-cc.mk
 
-.PHONY: myConfigure
-myConfigure:
-	$(RUN) $(MAKE) all COPTS="-DHAVE_BROKEN_RTC -DHAVE_DBUS" CURDIR="$(WORK_DIR)/$(PKG_DIR)"
-	$(RUN) $(MAKE) dnsmasq COPTS="-DHAVE_BROKEN_RTC -DHAVE_DBUS" CURDIR="$(WORK_DIR)/$(PKG_DIR)"
+.PHONY: myCompile
+myCompile:
+	$(RUN) $(MAKE) dnsmasq COPTS="-DHAVE_BROKEN_RTC -DHAVE_DBUS" PREFIX=$(INSTALL_PREFIX)
 
 .PHONY: myInstall
 myInstall:
