@@ -19,8 +19,8 @@ include ../../mk/spksrc.cross-cc.mk
 
 .PHONY: myConfigure
 myConfigure:
-	$(MAKE) COPTS="-DHAVE_BROKEN_RTC -DHAVE_DBUS" CURDIR="$(WORK_DIR)/$(PKG_DIR)"
-	$(MAKE) dnsmasq COPTS="-DHAVE_BROKEN_RTC -DHAVE_DBUS" CURDIR="$(WORK_DIR)/$(PKG_DIR)"
+	$(RUN) $(MAKE) all COPTS="-DHAVE_BROKEN_RTC -DHAVE_DBUS" CURDIR="$(WORK_DIR)/$(PKG_DIR)"
+	$(RUN) $(MAKE) dnsmasq COPTS="-DHAVE_BROKEN_RTC -DHAVE_DBUS" CURDIR="$(WORK_DIR)/$(PKG_DIR)"
 
 .PHONY: myInstall
 myInstall:
